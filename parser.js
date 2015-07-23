@@ -31,5 +31,29 @@
     // bug description
     bug.description.content = _description.find('p').eq(1).text();
 
+    var _timeline_items = $(page).find('.phui-timeline-view').find('.phui-timeline-shell');
+
+    bug.timeline = [];
+    _timeline_items.each(function (_item) {
+
+        var comment = '';
+        $(this).find('.phui-timeline-title').each(function (_action) {
+
+            // put all actions from the same transaction into one comment
+            comment += $(this).text() + '\n';
+        });
+
+        var _comment = $(this).find('.phui-timeline-core-content').find('p').text();
+
+        // append the actual comment text if there is one
+        if (_comment.length > 0) {
+            comment += _comment;
+        }
+
+        bug.timeline.push(comment);
+    });
+
+
+    console.log("\nBUG JSON:");
     console.log(bug);
 }) ();

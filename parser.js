@@ -15,6 +15,19 @@
     bug.subscribers = $(page).find("dt:contains('Subscribers')").next().text(); // FIXME?
     bug.projects = $(page).find("dt:contains('Projects')").next().text(); // FIXME?
 
+    bug.description = {};
+    var _description = $(page).find("div:contains('Description'):last").next();
+    var _desc_header = _description.find('p').eq(0).text();
+
+    // The name is at the front
+    bug.description.author = _desc_header.substring(0, _desc_header.indexOf('wrote') - 1);
+
+    // Take the date and strip the trailing colon
+    // TODO: Timezone?
+    bug.description.date = _desc_header.substring(_desc_header.indexOf('on') + 3, _desc_header.length - 1);
+
+    // bug description
+    bug.description.content = _description.find('p').eq(1).text();
 
     console.log(bug);
 }) ();

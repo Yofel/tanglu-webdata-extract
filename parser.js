@@ -5,6 +5,7 @@
     var page = fs.readFileSync('/home/yofel/dump/tanglu/cache-dl/tracker.tanglu.org/T1/index.html', {'encoding': 'utf8'});
     var bug = {};
 
+    bug.id = 1;
     bug.title = $(page).find('.phui-header-view').contents().eq(1).text();
     bug.status = $(page).find('.phui-header-view').children('.phui-header-subheader').contents().eq(0).text();
     bug.visibility = $(page).find('.phui-header-view').children('.phui-header-subheader').contents().eq(1).text();

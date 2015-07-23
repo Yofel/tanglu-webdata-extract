@@ -15,6 +15,7 @@
     bug.author = $(page).find("dt:contains('Author')").next().text();
     bug.subscribers = $(page).find("dt:contains('Subscribers')").next().text(); // FIXME?
     bug.projects = $(page).find("dt:contains('Projects')").next().text(); // FIXME?
+    bug.extern = $(page).find("dt:contains('External Issue')").next().text();
 
     bug.description = {};
     var _description = $(page).find("div:contains('Description'):last").next();

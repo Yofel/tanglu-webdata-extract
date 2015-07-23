@@ -11,10 +11,16 @@
 
     function parsePage(id) {
         var bug = {};
+        var pgae = undefined;
+
+        try {
+            page = fs.readFileSync('/home/yofel/dump/tanglu/cache-dl/tracker.tanglu.org/T' + id + '/index.html', {'encoding': 'utf8'});
+        } catch(err) {
+            // TODO: create a dummy bug
+            return {}
+        }
+
         bug.id = id;
-
-        var page = fs.readFileSync('/home/yofel/dump/tanglu/cache-dl/tracker.tanglu.org/T' + bug.id + '/index.html', {'encoding': 'utf8'});
-
         bug.title = $(page).find('.phui-header-view').contents().eq(1).text();
         bug.status = $(page).find('.phui-header-view').children('.phui-header-subheader').contents().eq(0).text();
         bug.visibility = $(page).find('.phui-header-view').children('.phui-header-subheader').contents().eq(1).text();

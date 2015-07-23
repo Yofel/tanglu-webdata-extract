@@ -1,0 +1,8 @@
+{
+    "name": "cache-dl",
+    "private": true,
+    "dependencies": {
+        "jquery": ">=1.10",
+        "jsdom": "~3"
+    }
+}

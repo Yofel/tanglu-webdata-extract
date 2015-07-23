@@ -26,7 +26,7 @@
         bug.extern = $(page).find("dt:contains('External Issue')").next().text();
 
         bug.description = {};
-        var _description = $(page).find("div:contains('Description'):last").next();
+        var _description = $(page).find(".phui-property-list-section-header:contains('Description'):last").next();
         var _desc_header = _description.find('p').eq(0).text();
 
         // The name is at the front

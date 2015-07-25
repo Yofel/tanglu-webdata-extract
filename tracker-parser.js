@@ -14,8 +14,19 @@
         try {
             page = fs.readFileSync(pwd + '/tracker.tanglu.org/T' + id + '/index.html', {'encoding': 'utf8'});
         } catch(err) {
-            // TODO: create a dummy bug
-            return {}
+            bug.id = id;
+            bug.title = "Dummy Bug";
+            bug.status = 'Closed, Resolved';
+            bug.visibility = 'Public ';
+            bug.assigned = 'ximion';
+            bug.priority = 'Low';
+            bug.author = 'ximion';
+            bug.subscribers = '';
+            bug.projects = [];
+            bug.description = "This bug was lost in a server failure";
+            bug.timeline = [];
+
+            return bug;
         }
 
         bug.id = id;

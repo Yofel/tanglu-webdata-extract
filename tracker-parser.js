@@ -26,7 +26,10 @@
         bug.priority = $(page).find("dt:contains('Priority')").next().text();
         bug.author = $(page).find("dt:contains('Author')").next().text();
         bug.subscribers = $(page).find("dt:contains('Subscribers')").next().text(); // FIXME?
-        bug.projects = $(page).find("dt:contains('Projects')").next().find('.phui-tag-view').text(); // FIXME?
+        bug.projects = []
+        $(page).find("dt:contains('Projects')").next().find('.phabricator-handle-tag-list').each(function(item) {
+            bug.projects.push($(this).find('.phui-tag-view').text());
+        });
         bug.extern = $(page).find("dt:contains('External Issue')").next().text();
 
         bug.description = {};

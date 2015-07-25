@@ -3,8 +3,6 @@
     var $ = require('jquery')(require("jsdom").jsdom().parentWindow);
     var exec = require('exec-sync');
 
-
-    console.log("\nBUG JSON:");
     console.log(parsePage(process.argv[2]));
 
     function parsePage(id) {

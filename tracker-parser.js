@@ -55,7 +55,7 @@
                 comment += $(this).text() + '\n';
             });
 
-            var _comment = $(this).find('.phui-timeline-core-content').find('p').text();
+            var _comment = $(this).find('.phui-timeline-core-content').text();
 
             // append the actual comment text if there is one
             if (_comment.length > 0) {

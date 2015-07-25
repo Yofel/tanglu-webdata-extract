@@ -32,19 +32,7 @@
         });
         bug.extern = $(page).find("dt:contains('External Issue')").next().text();
 
-        bug.description = {};
-        var _description = $(page).find(".phui-property-list-section-header:contains('Description'):last").next();
-        var _desc_header = _description.find('p').eq(0).text();
-
-        // The name is at the front
-        bug.description.author = _desc_header.substring(0, _desc_header.indexOf('wrote') - 1);
-
-        // Take the date and strip the trailing colon
-        // TODO: Timezone?
-        bug.description.date = _desc_header.substring(_desc_header.indexOf('on') + 3, _desc_header.length - 1);
-
-        // bug description
-        bug.description.content = _description.find('p').eq(1).text();
+        bug.description = $(page).find(".phui-property-list-section-header:contains('Description'):last").next().text();
 
         var _timeline_items = $(page).find('.phui-timeline-view').find('.phui-timeline-shell');
 

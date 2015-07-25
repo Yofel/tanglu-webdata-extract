@@ -2,12 +2,8 @@
     var fs = require('fs');
     var $ = require('jquery')(require("jsdom").jsdom().parentWindow);
 
-    var end = 2;
-
-    for (var i = 1; i <= end; i++) {
-        console.log("\nBUG JSON:");
-        console.log(parsePage(i));
-    }
+    console.log("\nBUG JSON:");
+    console.log(parsePage(process.argv[2]));
 
     function parsePage(id) {
         var bug = {};
@@ -69,4 +65,5 @@
 
         return bug;
     }
+
 }) ();

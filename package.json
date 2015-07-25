@@ -3,6 +3,7 @@
     "private": true,
     "dependencies": {
         "jquery": ">=1.10",
-        "jsdom": "~3"
+        "jsdom": "~3",
+        "exec-sync": "*"
     }
 }

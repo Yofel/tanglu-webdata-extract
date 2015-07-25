@@ -1,6 +1,8 @@
 (function() {
     var fs = require('fs');
     var $ = require('jquery')(require("jsdom").jsdom().parentWindow);
+    var exec = require('exec-sync');
+
 
     console.log("\nBUG JSON:");
     console.log(parsePage(process.argv[2]));
@@ -9,8 +11,10 @@
         var bug = {};
         var pgae = undefined;
 
+        var pwd = exec('pwd');
+
         try {
-            page = fs.readFileSync('/home/yofel/dump/tanglu/cache-dl/tracker.tanglu.org/T' + id + '/index.html', {'encoding': 'utf8'});
+            page = fs.readFileSync(pwd + '/tracker.tanglu.org/T' + id + '/index.html', {'encoding': 'utf8'});
         } catch(err) {
             // TODO: create a dummy bug
             return {}

@@ -4,4 +4,4 @@ Setup:
 - put the bug tracker data into ./tracker.tanglu.org/
 
 To run it:
-nodejs tracker-parser.js <bug-id>
+nodejs tracker-parser.js `bug-id`

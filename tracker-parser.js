@@ -3,7 +3,14 @@
     var $ = require('jquery')(require("jsdom").jsdom().parentWindow);
     var exec = require('exec-sync');
 
-    console.log(parsePage(process.argv[2]));
+    var out = [];
+
+    for (var i = 1; i < 145; i++) {
+        out.push(parsePage(i));
+    }
+    console.log("%j", out);
+
+    //console.log(parsePage(process.argv[2]));
 
     function parsePage(id) {
         var bug = {};
